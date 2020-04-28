@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 public class InvoiceSender {
     private final static String TOPIC ="InvoiceTopic";
-    private final static String BOOTSTRAP_SERVER = "0.0.0.0:9092";
+    private final static String BOOTSTRAP_SERVER = "kafka:9092";
     private static Producer<String, String> producer;
 
     private InvoiceSender() {
