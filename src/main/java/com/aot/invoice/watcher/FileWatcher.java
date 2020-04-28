@@ -72,7 +72,7 @@ public class FileWatcher {
                 Path child = dir.resolve(name);
                 System.out.format("%s: %s\n", event.kind().name(), child);
                 try {
-                	//Thread.sleep(60000);
+                	Thread.sleep(60000);
                     new InvoiceFileService().triggerInvoiceEvent(child.toString());
                     TimeUnit.MILLISECONDS.sleep(2000L);
                 } catch (InterruptedException | ExecutionException | IOException e) {
