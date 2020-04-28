@@ -27,9 +27,9 @@ public class PaymentInfoReceiver {
         settings.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         settings.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         settings.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
-        settings.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "C:\\codes\\programs\\Kafka\\ssl\\client.truststore.jks");
+        settings.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/app/apps/AOTVendorInvoicing/src/main/java/com/aot/invoice/jks/kafka.truststore.jks");
         settings.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "test1234");
-        settings.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG, "C:\\codes\\programs\\Kafka\\ssl\\server.keystore.jks");
+        settings.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG, "/app/apps/AOTVendorInvoicing/src/main/java/com/aot/invoice/jks/kafka.keystore.jks");
         settings.put(SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG, "test1234");
         settings.put(SslConfigs.SSL_KEY_PASSWORD_CONFIG, "test1234");
         final Consumer<String, String> consumer = new KafkaConsumer<>(settings);
