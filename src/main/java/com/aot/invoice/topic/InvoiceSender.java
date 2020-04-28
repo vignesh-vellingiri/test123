@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 public class InvoiceSender {
     private final static String TOPIC ="InvoiceTopic";
-    private final static String BOOTSTRAP_SERVER = "kafka:9092";
+    private final static String BOOTSTRAP_SERVER = "0.0.0.0:9092";
     private static Producer<String, String> producer;
 
     private InvoiceSender() {
@@ -28,8 +28,10 @@ public class InvoiceSender {
         settings.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         settings.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
         settings.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/app/apps/AOTVendorInvoicing/src/main/java/com/aot/invoice/jks/kafka.truststore.jks");
+        //settings.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "C:\\Users\\vignesh vellingiri\\Downloads\\docker\\kafka.truststore.jks");
         settings.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "test123");
         settings.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG, "/app/apps/AOTVendorInvoicing/src/main/java/com/aot/invoice/jks/kafka.keystore.jks");
+        //settings.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG, "C:\\Users\\vignesh vellingiri\\Downloads\\docker\\kafka.keystore.jks");
         settings.put(SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG, "test123");
         settings.put(SslConfigs.SSL_KEY_PASSWORD_CONFIG, "test123");
         settings.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
